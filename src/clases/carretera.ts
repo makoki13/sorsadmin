@@ -10,13 +10,15 @@ interface NombreDeCarretera {
 export class Carretera  {
   private static oBD: BaseDeDatos = new BaseDeDatos('carreteras');
   id: number;
+  ordinal: number;
   etiquetaRegion: string;
   nombres: Array<NombreDeCarretera>;
   segmentos: Array<Segmento>;
 
-  private static __guardaRegistro(id: string, etiqueta: string) {
+  private static __guardaRegistro(id: string, ordinal: string, etiqueta: string) {
     const registro = {
       '_id': id,
+      'ordinal': ordinal,
       'etiqueta': etiqueta
     };
     Carretera.oBD.insert(registro);
@@ -41,6 +43,6 @@ export class Carretera  {
   public listaSegmentos(): Array<Segmento> { return this.segmentos; }
 
   public guarda() {
-    Carretera.__guardaRegistro(this.id.toString(), this.etiquetaRegion);
+    Carretera.__guardaRegistro(this.id.toString(), this.ordinal.toString(), this.etiquetaRegion);
   }
 }
