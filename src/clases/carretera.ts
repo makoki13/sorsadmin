@@ -30,6 +30,7 @@ export class Carretera  {
 
   constructor(inicio: Coordenadas, fin: Coordenadas) {
     this.id = 1;
+    this.ordinal = 1;
 
     const segmentoInicial = new Segmento(this, inicio, fin);
     this.segmentos = new Array<Segmento>();

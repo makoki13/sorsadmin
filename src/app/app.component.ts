@@ -15,7 +15,6 @@ export class AppComponent {
   title = 'sorsadmin';
 
   constructor() {
-
     let miCarretera: Carretera ;
 
     Carretera.getRegistro('1').then( function(o) {
@@ -27,13 +26,15 @@ export class AppComponent {
         console.log('En main', miCarretera);
     });
 
-    // const inicioCarretera = new Coordenadas(10, 10, 10);
-    // const finCarretera = new Coordenadas(100, 100);
 
-    // const miCarretera = new Carretera(inicioCarretera, finCarretera);
-    // miCarretera.setEtiquetaRegion('Italia');
-    // miCarretera.guarda();
+    /*
+    const inicioCarretera = new Coordenadas(10, 10, 10);
+    const finCarretera = new Coordenadas(100, 100);
 
+    const miCarretera = new Carretera(inicioCarretera, finCarretera);
+    miCarretera.setEtiquetaRegion('Italia');
+    miCarretera.guarda();
+    */
 
 
     /*
