@@ -15,6 +15,8 @@ export class Carretera  {
   nombres: Array<NombreDeCarretera>;
   segmentos: Array<Segmento>;
 
+  private static pad(num, size) {const s = '000000000' + num; return s.substr(s.length - size); }
+
   private static __guardaRegistro(id: string, ordinal: string, etiqueta: string) {
     const registro = {
       '_id': id,
@@ -22,6 +24,16 @@ export class Carretera  {
       'etiqueta': etiqueta
     };
     Carretera.oBD.insert(registro);
+  }
+
+  public static crea(nombre: string, ordinal?: number) {
+    const oBD: BaseDeDatos = new BaseDeDatos('carreteras');
+    const registro = {
+      '_id': Carretera.pad(ordinal, 5),
+      'ordinal': Carretera.pad(ordinal, 5),
+      'etiquetaRegion': '1',
+    };
+    oBD.insert(registro);
   }
 
   public static getRegistro(id) {

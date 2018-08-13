@@ -19,12 +19,15 @@ export class Region {
    *
    * Pendiente determinar el siguiente id. Determinar el ordinal si no es dado.
    */
+
+  private static pad(num, size) {const s = '000000000' + num; return s.substr(s.length - size); }
+
   public static crea(nombre: string, ordinal?: number) {
     const oBD: BaseDeDatos = new BaseDeDatos('regiones');
     const registro = {
-      '_id': ordinal.toString(),
+      '_id': Region.pad(ordinal, 5),
       'nombre': nombre,
-      'ordinal': ordinal.toString()
+      'ordinal': Region.pad(ordinal, 5),
     };
     oBD.insert(registro);
   }
@@ -36,7 +39,7 @@ export class Region {
         const me = new Region();
         me.id = element.doc._id;
         me.nombre = element.doc.nombre;
-        me.ordinal = element.doc.ordinal;
+        me.ordinal = parseInt(element.doc.ordinal, 10);
         vector.push(me);
       });
     });
