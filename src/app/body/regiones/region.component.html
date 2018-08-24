@@ -1,0 +1,20 @@
+<h3>NUEVA REGIÓN</h3>
+<button class="btn btn-outline-danger"  [routerLink]="['home']">ATRAS</button>
+<hr>
+<div class="row animated fadeIn fast">
+  <div class="col-md-12">
+    <form (ngSubmit)="guardar()" #forma="ngForm">
+      <div class="form-group">
+        <label>Nombre</label>
+        <input type="text" name="" class="form-control" placeholder="Nombre de la región" required [(ngModel)]="region.nombre" name="nombre">
+      </div>
+      <div class="form-group">
+        <label>Ordinal</label>
+        <input type="number" name="" class="form-control" placeholder="Ordinal de la región" required [(ngModel)]="region.ordinal" name="ordinal">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!forma.valid">CREAR</button>
+      </div>
+    </form>
+  </div>
+</div>

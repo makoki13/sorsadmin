@@ -4,6 +4,7 @@ export class Region {
   private id: number;
   private nombre: string;
   private ordinal: number;
+  private $key: string;
 
   /** ESTATICAS PRIVADAS */
   private static get(id: number): Promise<Object> {
